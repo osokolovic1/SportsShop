@@ -47,9 +47,14 @@ body {
     transition: background 0.5s ease;
 }
 
+p, label {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .kolona .red .kolona { /*ako imamo red unutar kolone on je transparentan*/
     background-color: rgba(0, 0, 0, 0);
 }
+
 
 .kolona:first-child{
 	margin-left: 0px;
@@ -78,6 +83,7 @@ body {
     background-color: firebrick;
 }
 
+
 ul li {
     display: block;
     float: left;
@@ -87,6 +93,7 @@ ul li {
 
 /*artikli*/
 div.scijena {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
     color: red;
 }
@@ -97,7 +104,7 @@ div.scijena {
 
 h1, h2, h3, h4 {
     text-indent: 5%;
-    font-family: 'defaultFont';
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: black;
     min-width: 10%;
 }
@@ -108,7 +115,6 @@ h2.artikli.naslov {
 
 .novost {
     color: black;
-    font-family: 'Times New Roman', Times, serif;
     text-align: left;
     margin-left: 5%;
     margin-right: 5%;
@@ -141,7 +147,7 @@ h2.artikli.naslov {
 
 
 /*prodavnica*/
-.artikli.slika {
+.artikli.slika, ul.artikli img {
     max-width: 162px;
     max-height: 162px;
     margin: 0%;
@@ -173,7 +179,7 @@ h2.artikli.naslov {
     text-indent: 5%;
 }
 
-.forma .buttonWrap {
+.forma .buttonWrap, .forma label, ul.artikli {
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
@@ -195,6 +201,11 @@ h2.artikli.naslov {
 #slikaKontakt {
     max-width: 95%;
     max-height: auto;
+}
+
+.kolona.cetiri.prazno {
+    display: block;
+    float: left;
 }
 
 /*poslovnice*/
@@ -226,6 +237,7 @@ h2.artikli.naslov {
 
 /*prijava*/
 .centar {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
 }
 
@@ -235,7 +247,7 @@ h2.artikli.naslov {
 }
 
 .kolona.devet {
-    width: 74.44%;
+    width: 74.3%;
 }
 
 .kolona.osam {
