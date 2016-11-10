@@ -21,7 +21,6 @@ body {
     margin: 0 auto;
     background-image: url('img/mainBackground1.jpg');
     background-size: 100%;
-    font-family: 'Josefin Sans' sans-serif;
     text-align: justify;
 }
 
@@ -135,6 +134,9 @@ h2.artikli.naslov {
 
 .kolona.dvanaest.footer {
     padding-top: 7%;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
     text-align: center;
     background-color: rgba(0, 0, 0, 0);
 }
@@ -272,4 +274,60 @@ h2.artikli.naslov {
 
 .kolona.jedan {
     width: 7.417%;
+}
+
+
+/*mobilni uređaji*/
+@media screen and (max-width: 424px) {
+
+    .kolona, .kolona.devet, .kolona.osam, .kolona.sest, .kolona.cetiri, .kolona.tri, .kolona.jedan {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .kolona.dva.meni {
+        margin-left: 24.5%;
+    }
+
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+
+}
+
+@media screen and (max-width: 801px) {
+
+    .kolona, .kolona.devet, .kolona.osam, .kolona.sest, .kolona.cetiri, .kolona.tri, .kolona.jedan {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .kolona.dva.meni {
+        width: 49%;
+    }
+
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 862px) {
+    .kolona, .kolona.devet, .kolona.osam, .kolona.sest, .kolona.cetiri, .kolona.tri, .kolona.jedan {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .kolona.dva.meni {
+        width: 31%;
+    }
+
+    img {
+        display: block;
+        margin: 0 auto;
+    }
 }
