@@ -1,1 +1,2 @@
 label u formama nije poravnat - poravnati tako da ubacim u div i tekst i polje za unosa
+cijene u shopu poravnati
