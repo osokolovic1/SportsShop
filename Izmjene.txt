@@ -1,0 +1,17 @@
+label u formama nije poravnat - poravnati tako da ubacim u div i tekst i polje za unosa
+
+cijene u shopu poravnati :
+.red.artikli img {
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
++ umjesto p h3 cijena
+
+.red.artikli {
+	width: 100%;
+	margin 0%;
+	
+}
+
++ p također poravnati
