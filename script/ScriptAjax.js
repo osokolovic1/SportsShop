@@ -11,6 +11,7 @@ function ucitajSadrzaj(meni) {
         ucitajFormaLogin();
         ucitajFormaReg();
       }
+      else if (ucitavanje == 3) ucitajFormaShop();
     }
     else {
       console.log(xmlhttp.readyState);
@@ -23,6 +24,7 @@ function ucitajSadrzaj(meni) {
       break;
     case 2:
       path = "ShopContent.html";
+      ucitavanje = 3;
       break;
     case 3:
       path = "ContactContent.html";
