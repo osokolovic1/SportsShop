@@ -1,17 +1,16 @@
 xmlhttp = new XMLHttpRequest();
 
 function ucitajSadrzaj(meni) {
-  var ucitavanje;
   xmlhttp.onreadystatechange =
   function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
       document.getElementById("wrapperDiv").innerHTML = xmlhttp.responseText;
-      if (ucitavanje == 1) ucitajFormaKontakt();
-      else if (ucitavanje == 2) {
+      if (meni == 3) ucitajFormaKontakt();
+      else if (meni == 6) {
         ucitajFormaLogin();
         ucitajFormaReg();
       }
-      else if (ucitavanje == 3) ucitajFormaShop();
+      else if (meni == 2) ucitajFormaShop();
     }
     else {
       console.log(xmlhttp.readyState);
