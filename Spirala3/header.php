@@ -31,10 +31,14 @@
      <label><div class="kolona dva meni"><a href="LoginContent.php">PRIJAVA</a></div></label>
    </div>
    <?php
-    if (isset($_SESSION["korisnik"])) {
-      echo '<div class="red"><a class="odjavaLink" href="logout.php">Odjava</a>';
-    }
-    ?>
+    if (isset($_SESSION["korisnik"])) { ?>
+      <div class="red">
+        <a class="odjavaLink" href="logout.php">Odjava</a>
+        <?php if(isset($_SESSION["rola"]) && $_SESSION["rola"] == "administrator") { ?>
+          <a class="odjavaLink" href="preuzimanjeCSV.php">Podaci o korisnicima(CSV)</a>
+        <?php } ?>
+      </div>
+    <?php } ?>
 
  </body>
  </html>

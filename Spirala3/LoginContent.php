@@ -79,30 +79,32 @@
 
       <?php
         if (isset($_POST["promjenaOK"])) {
-          $novoKIme = preg_replace("/[^a-zA-Z0-9]/", "", $_POST["inputKorisnickoImePromj"]);
-          $staraSifra = preg_replace("/[^a-zA-Z0-9]/", "", $_POST["inputSSifraPromj"]);
-          $novaSifra = preg_replace("/[^a-zA-Z0-9]/", "", $_POST["inputNSifraPromj"]);
-          if ($novoKIme != "") {
-            if (!file_exists("users/" . $novoKIme . ".xml")){
-              //nadji fajl sa imenom iz sesije i preimenuj ga u novo
-              rename("users/" . $_SESSION["korisnik"] . ".xml", "users/" . $novoKIme . ".xml");
-              $_SESSION["korisnik"] = $novoKIme;
-              die;
+          if (isset($_POST["inputKorisnickoImePromj"])) {
+            $novoKIme = preg_replace("/[^a-zA-Z0-9]/", "", $_POST["inputKorisnickoImePromj"]);
+            if ($novoKIme != "") {
+              if (!file_exists("users/" . $novoKIme . ".xml")){
+                //nadji fajl sa imenom iz sesije i preimenuj ga u novo
+                rename("users/" . $_SESSION["korisnik"] . ".xml", "users/" . $novoKIme . ".xml");
+                $_SESSION["korisnik"] = $novoKIme;
+                header("Location: LoginContent.php");
+                die;
+              }
+              else $greskaPromj = "Korisnik sa unesenim imenom već postoji!";
             }
-            else $greskaPromj = "Korisnik sa unesenim imenom već postoji!";
           }
-          else if ($novaSifra != "") {
-            //provjerimo tacnost stare sifre
+          if (isset($_POST["inputSSifraPromj"])) {
+            $staraSifra = preg_replace("/[^a-zA-Z0-9]/", "", $_POST["inputSSifraPromj"]);
             if ($_SESSION["sifra"] == md5($staraSifra)) {
               //ucitamo i promijenimo sifru
+              $novaSifra = preg_replace("/[^a-zA-Z0-9]/", "", $_POST["inputNSifraPromj"]);
               $doc = new DOMDocument();
+              //da bi bio prijavljen mora postojati pa zato ne provjeravamo
               $doc->load("users/" . $_SESSION["korisnik"] . ".xml");
               $doc->getElementsByTagName("password")->item(0)->nodeValue = md5($novaSifra);
               $doc->save("users/" . $_SESSION["korisnik"] . ".xml");
 
               $_SESSION["izvornaSifra"] = $novaSifra;
               $_SESSION["sifra"] = md5($novaSifra);
-              //die;
             }
           }
         }
@@ -178,9 +180,6 @@
           $xmlRoot->appendChild($rola);
 
           $xml->save("users/" . $korImeReg . ".xml");
-
-          header("Location: index.php");
-          die;
         }
       }
       ?>
