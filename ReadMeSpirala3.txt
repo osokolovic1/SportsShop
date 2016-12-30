@@ -14,6 +14,8 @@ Uraðeno je:
 -u konzoli se javlja error ukoliko slika ne postoji i to zbog dodavanja defaultne "no image available" slike na dogaðaj onerror
 -Pri brisanju/editovanju artikla potrebno je prvo kliknuti na neki artikal od postojeæih na što nas navode i placeholderi u formi.
 
+-Postoji jedna greška koja ne ometa rad str, u liniji 123 fajla ShopContent.php zbog upozorenja koje javlja nekad, potrebno je promijeniti drugi dio uslova iz $_SESSION["rola"] == "administrator" u isset($_SESSION["rola"]) jer "rolu" ne postavljam za obiènog korisnika.
+
 2.
 -Adminu je omoguæen download csv podataka što je vidljivo na svakoj stranici nakon što se admin prijavi.
 
