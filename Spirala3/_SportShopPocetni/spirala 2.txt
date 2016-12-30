@@ -1,0 +1,8 @@
+carousel na sniženjima na poèetnoj strani
+https://coderwall.com/p/vsdrug/how-to-create-an-image-slider-with-javascript
+
+-pozivanje metode sa parametrima iz html: string unutar stringa se oznaèava sa ' '
+
+
+-na login staviti localStorage a na ostale sessionStorage- ovo vidjeti sa asistentom kao i clear na button ondje gdje treba
+

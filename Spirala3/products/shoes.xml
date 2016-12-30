@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shoes>
+  <product>
+    <id>1</id>
+    <name>Tene Adidas M.</name>
+    <price>175.00</price>
+    <image>img/artikli/tene1.jpg</image>
+  </product>
+  <product>
+    <id>2</id>
+    <name>Tene Nike M.</name>
+    <price>99.00</price>
+    <image>img/artikli/tene2.jpg</image>
+  </product>
+  <product>
+    <id>3</id>
+    <name>Tene Adidas Ž.</name>
+    <price>124.90</price>
+    <image>img/artikli/tene3.jpg</image>
+  </product>
+  <product>
+    <id>4</id>
+    <name>Tene Nike M.</name>
+    <price>180.00</price>
+    <image>img/artikli/tene4.jpg</image>
+  </product>
+</shoes>

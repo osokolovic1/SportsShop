@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<requisites>
+  <product>
+    <id>2</id>
+    <name>Peškir Arena</name>
+    <price>22.00</price>
+    <image>img/artikli/r2.jpg</image>
+  </product>
+  <product>
+    <id>3</id>
+    <name>Kapa Nike</name>
+    <price>29.00</price>
+    <image>img/artikli/r3.jpg</image>
+  </product>
+  <product>
+    <id>4</id>
+    <name>Flaša Nike</name>
+    <price>14.90</price>
+    <image>img/artikli/r4.jpg</image>
+  </product>
+  <product>
+    <id>4</id>
+    <name>Torba Nike</name>
+    <price>89.90</price>
+    <image>img/artikli/r1.jpg</image>
+  </product>
+</requisites>

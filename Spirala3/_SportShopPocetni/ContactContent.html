@@ -1,0 +1,35 @@
+<div id="contact">
+  <div class="red">
+      <div class="kolona dva prazno"></div>
+
+      <div class="kolona cetiri prazno"> <!-- ovo je kontakt opis-->
+          <img src="img/contact.jpg" alt="error" id="slikaKontakt">
+          <p class="novost"> <!--koristimo klasu novost jer je već uređena u style-->
+              Imate konstruktivne prijedloge u vezi naše web stranice? Potrebna vam je pomoć, želite pohvaliti naš rad i rad našeg osoblja ili možda
+              imate žalbu? Tu smo da odgovorimo na sva vaša pitanja i primimo kritike bile one pozitivne ili negativne.<br>Možete nam se obratiti putem
+              forme desno koja je tu da olakša komunikaciju.<br>Napomenimo da ćete odgovor dobiti na unesenu e-mail adresu. <br><br><br>
+              Pored iznad navedenog kantaktirati nas možete na sljedeće načine: <br><br>
+              <b><i>Tel/Fax:+38733/444-9990<br>E-mail: sports@sportsokolovic.ba</b></i>
+          </p>
+      </div>
+
+      <div class="kolona cetiri prazno"> <!--forma za kontakt kontakt-->
+          <form class="forma">
+              <h3>Kontaktirajte nas:</h3>
+              <label>Vaša e-mail adresa:</label><br>
+              <input type="text" id="inputMail" onblur="focusLostEmail();">
+              <br><br>
+              <label>Vaša poruka:</label><br>
+              <textarea name="poruka" id="textareaPoruka" rows="22" cols="50" onblur="focusLostPoruka();"></textarea>
+              <br>
+              <div class="pValid">
+                <label id="pKontakt"></label>
+              </div>
+              <br>
+              <div class="buttonWrap">
+                  <button type="button" onclick="spremiFormaKontakt(); onclickPosalji();">Pošalji</button>  <!--ovdje u slj spiralama uraditi clear polja-->
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
