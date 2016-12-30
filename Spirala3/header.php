@@ -34,6 +34,7 @@
     if (isset($_SESSION["korisnik"])) { ?>
       <div class="red">
         <a class="odjavaLink" href="logout.php">Odjava</a>
+        <a class="odjavaLink" href="preuzimanjePDF.php">Katalog(PDF)</a>
         <?php if(isset($_SESSION["rola"]) && $_SESSION["rola"] == "administrator") { ?>
           <a class="odjavaLink" href="preuzimanjeCSV.php">Podaci o korisnicima(CSV)</a>
         <?php } ?>
