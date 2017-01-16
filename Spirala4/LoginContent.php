@@ -1,8 +1,13 @@
 <?php
   include('header.php');
-
-  $veza = new PDO("mysql:host=" . getenv("MYSQL_SERVICE_HOST") . ";port=3306;dbname=sportsshop", "osokolovic1", "88xgjgizvyjfa7d2");
-  $veza->exec("set names utf8");
+  try {
+    $veza = new PDO("mysql:host=" . getenv("MYSQL_SERVICE_HOST") . ";port=3306;dbname=sportsshop", "osokolovic1", "88xgjgizvyjfa7d2");
+    $veza->exec("set names utf8");
+  }
+  catch (PDOException $e) {
+    echo $e->getMessage();
+    exit;
+  }
 
   $greska = "";
   $greskaReg ="";

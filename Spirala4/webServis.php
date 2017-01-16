@@ -6,10 +6,19 @@
   }
 
   function rest_get($request, $data) {
-    $veza = new PDO("mysql:host=" . getenv("MYSQL_SERVICE_HOST") . ";port=3306;dbname=sportsshop", "osokolovic1", "88xgjgizvyjfa7d2");
-    $veza->exec("set names utf8");
+    try {
+      $veza = new PDO("mysql:host=" . getenv("MYSQL_SERVICE_HOST") . ";port=3306;dbname=sportsshop", "osokolovic1", "88xgjgizvyjfa7d2");
+      $veza->exec("set names utf8");
+    }
+    catch (PDOException $e) {
+      echo $e->getMessage();
+      exit;
+    }
 
-    $id = $data["id"];
+    $id = "";
+    if (isset($data["id"]))  //ako se pozove bez id parametra
+      $id = $data["id"];
+
     $query = "SELECT naziv, cijena FROM artikli";
     if ($id != "") //tj ako je zadan id da pronadje samo taj artikal a ako nije vraca sve artikle
       $query = $query . " WHERE artikalid=?";
