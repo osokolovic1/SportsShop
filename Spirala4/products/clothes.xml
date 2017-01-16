@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clothes>
+  <product>
+    <id>1</id>
+    <name>Jakna Karimor M.</name>
+    <price>175.00</price>
+    <image>img/artikli/o1.jpg</image>
+  </product>
+  <product>
+    <id>2</id>
+    <name>Dukserica Nike M.</name>
+    <price>83.90</price>
+    <image>img/artikli/o2.jpg</image>
+  </product>
+  <product>
+    <id>3</id>
+    <name>Jakna Karimor W.</name>
+    <price>135.00</price>
+    <image>img/artikli/o3.jpg</image>
+  </product>
+  <product>
+    <id>4</id>
+    <name>Dukserica Nike W.</name>
+    <price>83.90</price>
+    <image>img/artikli/o4.jpg</image>
+  </product>
+</clothes>

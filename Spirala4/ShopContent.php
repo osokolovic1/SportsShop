@@ -1,5 +1,13 @@
 <?php
   include('header.php');
+  $veza = new PDO("mysql:host=" . getenv("MYSQL_SERVICE_HOST") . ";port=3306;dbname=sportsshop", "osokolovic1", "88xgjgizvyjfa7d2");
+  $veza->exec("set names utf8");
+
+  $upit = $veza->prepare("SELECT * FROM artikli");
+  $upit->execute();
+  $rezultat = $upit->fetchAll();
+
+  $upitSlika = $veza->prepare("SELECT lokacija FROM slike WHERE slikaid=?");
 ?>
 
 <script src="script/ScriptFormaDodajArtikal.js"></script>
@@ -50,21 +58,18 @@
               <h2 class="artikli naslov">Odjeća:</h2>
               <ul class="artikli">
                 <?php
-                  if (file_exists("products/clothes.xml")) {
-                    $xmlclothes = simplexml_load_file("products/clothes.xml");
-                    $clothes = $xmlclothes->children();
-                  ?>
-
-                  <?php
-                    foreach ($clothes as $cth) { ?>
+                  foreach ($rezultat as $red) {
+                    if ($red["tip"] == 1) {
+                      $upitSlika->execute(array($red["artikalid"]));
+                      $slika = $upitSlika->fetch();
+                    ?>
                       <li onclick="selectElement(this, 'Odjeca')">
-                          <img src="<?php echo $cth->image; ?>" onerror="if (this.src != 'img/error.jpg') this.src = 'img/error.jpg';">
-                          <p><div class="snaziv"><?php echo $cth->name;?></div></p>
-                          <p><div class="scijena"><?php echo $cth->price;?>KM</div></p>
+                          <img src="<?php echo $slika["lokacija"]; ?>" onerror="if (this.src != 'img/error.jpg') this.src = 'img/error.jpg';">
+                          <p><div class="snaziv"><?php echo $red["naziv"];?></div></p>
+                          <p><div class="scijena"><?php echo $red["cijena"];?>KM</div></p>
                       </li>
                   <?php }
-                  }
-                  else echo '<script>alert("Greška, file nije pronađen!");</script>';
+                 }
                 ?>
               </ul>
           </div>
@@ -73,21 +78,18 @@
               <h2 class="artikli naslov">Obuća:</h2>
               <ul class="artikli">
                 <?php
-                  if (file_exists("products/shoes.xml")) {
-                    $xmlshoes = simplexml_load_file("products/shoes.xml");
-                    $shoes = $xmlshoes->children();
-                  ?>
-
-                  <?php
-                    foreach ($shoes as $shs) { ?>
+                  foreach ($rezultat as $red) {
+                    if ($red["tip"] == 2) {
+                      $upitSlika->execute(array($red["artikalid"]));
+                      $slika = $upitSlika->fetch();
+                    ?>
                       <li onclick="selectElement(this, 'Obuca')">
-                          <img src="<?php echo $shs->image; ?>" onerror="if (this.src != 'img/error.jpg') this.src = 'img/error.jpg';">
-                          <p><div class="snaziv"><?php echo $shs->name;?></div></p>
-                          <p><div class="scijena"><?php echo $shs->price;?>KM</div></p>
+                          <img src="<?php echo $slika["lokacija"]; ?>" onerror="if (this.src != 'img/error.jpg') this.src = 'img/error.jpg';">
+                          <p><div class="snaziv"><?php echo $red["naziv"];?></div></p>
+                          <p><div class="scijena"><?php echo $red["cijena"];?>KM</div></p>
                       </li>
                   <?php }
-                  }
-                  else echo '<script>alert("Greška, file nije pronađen!");</script>';
+                 }
                 ?>
               </ul>
           </div>
@@ -96,21 +98,18 @@
               <h2 class="artikli naslov">Rekviziti:</h2>
               <ul class="artikli">
                 <?php
-                  if (file_exists("products/requisites.xml")) {
-                    $xmlreq = simplexml_load_file("products/requisites.xml");
-                    $req = $xmlreq->children();
-                  ?>
-
-                  <?php
-                    foreach ($req as $rq) { ?>
+                  foreach ($rezultat as $red) {
+                    if ($red["tip"] == 3) {
+                      $upitSlika->execute(array($red["artikalid"]));
+                      $slika = $upitSlika->fetch();
+                    ?>
                       <li onclick="selectElement(this, 'Rekviziti')">
-                          <img src="<?php echo $rq->image; ?>" onerror="if (this.src != 'img/error.jpg') this.src = 'img/error.jpg';">
-                          <p><div class="snaziv"><?php echo $rq->name;?></div></p>
-                          <p><div class="scijena"><?php echo $rq->price;?>KM</div></p>
+                          <img src="<?php echo $slika["lokacija"]; ?>" onerror="if (this.src != 'img/error.jpg') this.src = 'img/error.jpg';">
+                          <p><div class="snaziv"><?php echo $red["naziv"];?></div></p>
+                          <p><div class="scijena"><?php echo $red["cijena"];?>KM</div></p>
                       </li>
                   <?php }
-                  }
-                  else echo '<script>alert("Greška, file nije pronađen!");</script>';
+                 }
                 ?>
               </ul>
           </div>
@@ -154,6 +153,7 @@
           </form>
         </div>
       </div>
+
 
 <!--forma dodaj-->
       <div class="red">
