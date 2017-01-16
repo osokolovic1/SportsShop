@@ -165,17 +165,24 @@
       if (isset($_POST["registracija"])) {
         //radi bez event prevent
         //ovdje imamo validirane sve unose prije submita
-        $ime = preg_replace("/[^a-zA-Z]/", "", $_POST["inputImeReg"]);
-        $prezime = preg_replace("/[^a-zA-Z]/", "", $_POST["inputPrezimeReg"]);
-        $email = $_POST["inputMail"];
-        $korImeReg = $_POST["inputKorisnickoImeReg"];
-        $sifraReg = $_POST["inputSifraReg"];
+        //dodano ako je prijavljen već da se ne može registrovati
+        if (!isset($_SESSION["korisnik"])) {
+          $ime = preg_replace("/[^a-zA-Z]/", "", $_POST["inputImeReg"]);
+          $prezime = preg_replace("/[^a-zA-Z]/", "", $_POST["inputPrezimeReg"]);
+          $email = $_POST["inputMail"];
+          $korImeReg = $_POST["inputKorisnickoImeReg"];
+          $sifraReg = $_POST["inputSifraReg"];
 
-        $upitProvjera = $veza->prepare("INSERT INTO korisnici (ime, prezime, email, korisnicko_ime, sifra)
-                                                VALUES (?, ?, ?, ?, ?)");
-        $test = $upitProvjera->execute(array($ime, $prezime, $email, $korImeReg, md5($sifraReg)));
-        if (!$test)
-          $greskaReg = "Korisnik sa unesenim korisničkim imenom već postoji!";
+          $upitProvjera = $veza->prepare("INSERT INTO korisnici (ime, prezime, email, korisnicko_ime, sifra)
+                                                  VALUES (?, ?, ?, ?, ?)");
+          $test = $upitProvjera->execute(array($ime, $prezime, $email, $korImeReg, md5($sifraReg)));
+          if (!$test)
+            $greskaReg = "Korisnik sa unesenim korisničkim imenom već postoji!";
+          else
+            $greskaReg = "";
+        }
+        else
+          $greskaReg = "Već ste prijavljeni!";
       }
       ?>
       <div class="red">
